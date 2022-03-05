@@ -5,6 +5,8 @@ const NavbarUserAvatar = () => {
   const [state] = useAppContext();
   //   console.log(context);
 
+  console.log('NavbarUserAvatar render');
+
   return <img src={state?.user?.avatar} alt='avatar' width='50' />;
 };
 

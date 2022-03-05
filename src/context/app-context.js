@@ -13,8 +13,6 @@ function reducer(state, action) {
   switch (action.type) {
     case 'updateUser':
       return { ...state, user: action.payload };
-    case 'toggleTheme':
-      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
     default:
       throw new Error(`Unhandled action type  ${action.type}`);
   }
@@ -22,7 +20,6 @@ function reducer(state, action) {
 
 const initialState = {
   user: {},
-  theme: 'dark',
 };
 
 export function AppProvider({ children }) {

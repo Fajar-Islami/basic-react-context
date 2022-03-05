@@ -1,8 +1,10 @@
 import React from 'react';
-import { useAppContext } from '../context/app-context';
+import { useThemeContext } from '../context/theme-context';
 
 const DisplayTheme = () => {
-  const [state] = useAppContext();
+  const [state] = useThemeContext();
+
+  console.log('DisplayTheme render');
 
   /* Hasil console.log(state)
     [

@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Settings from './components/Settings';
 import ToggleTheme from './components/ToggleTheme';
 import { AppProvider } from './context/app-context';
+import { ThemeProvider } from './context/theme-context';
 
 function App() {
   return (
@@ -13,13 +14,15 @@ function App() {
       {/* <Reducer /> */}
 
       <AppProvider>
-        <Navbar />
-        <hr />
-        <Settings />
-        <hr />
-        <DisplayTheme />
-        <hr />
-        <ToggleTheme />
+        <ThemeProvider>
+          <Navbar />
+          <hr />
+          <Settings />
+          <hr />
+          <DisplayTheme />
+          <hr />
+          <ToggleTheme />
+        </ThemeProvider>
       </AppProvider>
     </div>
   );
