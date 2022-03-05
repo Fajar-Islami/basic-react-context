@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import DisplayTheme from './components/DisplayTheme';
 import Navbar from './components/Navbar';
-import Reducer from './components/Reducer';
+// import Reducer from './components/Reducer';
 import Settings from './components/Settings';
 import ToggleTheme from './components/ToggleTheme';
 import { AppProvider } from './context/app-context';
@@ -10,16 +10,17 @@ import { AppProvider } from './context/app-context';
 function App() {
   return (
     <div className='App'>
-      <Reducer />
+      {/* <Reducer /> */}
 
-      {/* <AppProvider>
+      <AppProvider>
         <Navbar />
         <hr />
         <Settings />
         <hr />
         <DisplayTheme />
+        <hr />
         <ToggleTheme />
-      </AppProvider> */}
+      </AppProvider>
     </div>
   );
 }

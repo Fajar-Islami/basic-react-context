@@ -38,4 +38,5 @@ function reducer setidaknya menerima 2 parameter yaitu (state,action)
 - state = nilai state ini, ketika dieksekusi. nilainya sama dengan state.
 - action = ngambil dari argumen dispatch action
 
-useReducer sama seperti usState tidak otomatis merge.
+useReducer sama seperti usState tidak otomatis merge.  
+convention case reducer biasanya CAPSLOCK.

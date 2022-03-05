@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 
 export const AppContext = createContext({
   empty: true, // default value
@@ -9,9 +9,24 @@ export function useAppContext() {
   return useContext(AppContext);
 }
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'updateUser':
+      return { ...state, user: action.payload };
+    case 'toggleTheme':
+      return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
+    default:
+      throw new Error(`Unhandled action type  ${action.type}`);
+  }
+}
+
+const initialState = {
+  user: {},
+  theme: 'dark',
+};
+
 export function AppProvider({ children }) {
-  const [user, setUser] = useState({});
-  const [theme, setTheme] = useState('dark');
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const user = {
@@ -19,15 +34,13 @@ export function AppProvider({ children }) {
       avatar: 'https://randomuser.me/api/portraits/men/75.jpg',
     };
 
-    setUser(user);
+    dispatch({
+      type: 'updateUser',
+      payload: user,
+    });
   }, []);
 
-  const appContextValue = {
-    user,
-    setUser,
-    theme,
-    setTheme,
-  };
+  const appContextValue = [state, dispatch]; // agar lebih clean code, destructing array
 
   return (
     <AppContext.Provider value={appContextValue}>

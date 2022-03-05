@@ -2,9 +2,19 @@ import React from 'react';
 import { useAppContext } from '../context/app-context';
 
 const DisplayTheme = () => {
-  const context = useAppContext();
+  const [state] = useAppContext();
 
-  return <div> {context.theme} </div>;
+  /* Hasil console.log(state)
+    [
+        {
+        user: {},
+        theme: 'dark',
+        },
+        null,
+    ];
+  */
+
+  return <div> {state.theme} </div>;
 };
 
 export default DisplayTheme;
