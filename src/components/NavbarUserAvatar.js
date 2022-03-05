@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/app-context';
+import React from 'react';
+import { useAppContext } from '../context/app-context';
 
 const NavbarUserAvatar = () => {
-  const context = useContext(AppContext);
+  const context = useAppContext();
   //   console.log(context);
 
   return <img src={context?.user?.avatar} alt='avatar' width='50' />;
