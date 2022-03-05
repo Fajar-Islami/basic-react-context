@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import DisplayTheme from './components/DisplayTheme';
+import Navbar from './components/Navbar';
+import Settings from './components/Settings';
+import ToggleTheme from './components/ToggleTheme';
+import { AppContext } from './context/app-context';
 
 function App() {
+  const [user, setUser] = useState({});
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const user = {
+      name: 'John Doe',
+      avatar: 'https://randomuser.me/api/portraits/men/75.jpg',
+    };
+
+    setUser(user);
+  }, []);
+
+  const appContextValue = {
+    user,
+    setUser,
+    theme,
+    setTheme,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <AppContext.Provider value={appContextValue}>
+        <Navbar />
+        <hr />
+        <Settings />
+        <DisplayTheme />
+        <ToggleTheme />
+      </AppContext.Provider>
     </div>
   );
 }
