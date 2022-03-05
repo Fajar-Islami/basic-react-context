@@ -26,4 +26,16 @@ Channel ArrayID
 
 ## useReducer
 
---> Alternatif dari useState. Kita bisa buat function yg ketika diinvoke akan memproduksi state baru. Bisa membuat state yang lebih kompleks
+--> Alternatif dari useState. Kita bisa buat function yg ketika diinvoke akan memproduksi state baru. Bisa membuat state yang lebih kompleks.
+
+`const [state, dispatch] = useReducer(first, second, third)`
+
+first = untuk function yang mengubah nilai state  
+second = initial state  
+untuk set State di useReducer, lakukan difunction
+function reducer setidaknya menerima 2 parameter yaitu (state,action)
+
+- state = nilai state ini, ketika dieksekusi. nilainya sama dengan state.
+- action = ngambil dari argumen dispatch action
+
+useReducer sama seperti usState tidak otomatis merge.
